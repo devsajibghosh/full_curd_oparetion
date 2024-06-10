@@ -1,41 +1,41 @@
-<?php 
+<?php
 session_start();
 include('./config/db.php');
 // read from database table
 
-$select_users = "SELECT * FROM users" ;
-$connect_users = mysqli_query($db_connect,$select_users);
+$select_users = "SELECT * FROM users";
+$connect_users = mysqli_query($db_connect, $select_users);
 $users = mysqli_fetch_assoc($connect_users);
 
 // service active and deactive
 
 $service_query = "SELECT * FROM services WHERE status='active'";
-$services = mysqli_query($db_connect,$service_query);
+$services = mysqli_query($db_connect, $service_query);
 
 // active and deactive facts
 
 $fact_query = "SELECT * FROM facts WHERE status='active'";
-$facts = mysqli_query($db_connect,$fact_query);
+$facts = mysqli_query($db_connect, $fact_query);
 
 // brands select 
 
 $brands_query = "SELECT * FROM brands WHERE status='active'";
-$brands = mysqli_query($db_connect,$brands_query);
+$brands = mysqli_query($db_connect, $brands_query);
 
 // portfolios all data select 
 
 $port_query =  "SELECT * FROM portfolios WHERE status='active'";
-$portfolios = mysqli_query($db_connect,$port_query);
+$portfolios = mysqli_query($db_connect, $port_query);
 
 // testimonials data selet
 
 $testimonial_query =  "SELECT * FROM testimonials WHERE status='active'";
-$testimonials = mysqli_query($db_connect,$testimonial_query);
+$testimonials = mysqli_query($db_connect, $testimonial_query);
 
 // about section skills and year
 
 $skill_query = "SELECT * FROM skills WHERE status='active'";
-$skills = mysqli_query($db_connect,$skill_query);
+$skills = mysqli_query($db_connect, $skill_query);
 
 
 ?>
@@ -65,8 +65,8 @@ $skills = mysqli_query($db_connect,$skill_query);
   <link rel="stylesheet" href="./frontend_assets/css/style.css" />
   <link rel="stylesheet" href="./frontend_assets/css/responsive.css" />
 
-    <!-- fontawsome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- fontawsome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="theme-bg">
@@ -173,7 +173,7 @@ $skills = mysqli_query($db_connect,$skill_query);
             <div class="banner-content">
               <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
               <h2 class="wow fadeInUp" data-wow-delay="0.4s">
-               I am <?= $users['name']; ?>
+                I am <?= $users['name']; ?>
               </h2>
               <p class="wow fadeInUp" data-wow-delay="0.6s">
                 I'm Will Smith, professional web developer with long time
@@ -236,20 +236,20 @@ $skills = mysqli_query($db_connect,$skill_query);
               <h3>Education:</h3>
             </div>
             <!-- Education Item -->
-          <?php foreach($skills as $skill) : ?>
-            <div class="education">
-              <div class="year"><?= $skill['year'] ?></div>
-              <div class="line"></div>
-              <div class="location">
-                <span><?= $skill['title'] ?></span>
-                <div class="progressWrapper">
-                  <div class="progress">
-                    <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?= $skill['skill_percentage'] ?>%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            <?php foreach ($skills as $skill) : ?>
+              <div class="education">
+                <div class="year"><?= $skill['year'] ?></div>
+                <div class="line"></div>
+                <div class="location">
+                  <span><?= $skill['title'] ?></span>
+                  <div class="progressWrapper">
+                    <div class="progress">
+                      <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?= $skill['skill_percentage'] ?>%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <?php endforeach; ?>
+            <?php endforeach; ?>
             <!-- End Education Item -->
 
 
@@ -271,16 +271,16 @@ $skills = mysqli_query($db_connect,$skill_query);
           </div>
         </div>
         <div class="row">
-          <?php foreach($services as $service) : ?>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-              <i class="<?= $service['icon'] ?>"></i>
-              <h3><?= $service['title'] ?></h3>
-              <p>
-              <?= $service['description'] ?>
-              </p>
+          <?php foreach ($services as $service) : ?>
+            <div class="col-lg-4 col-md-6">
+              <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
+                <i class="<?= $service['icon'] ?>"></i>
+                <h3><?= $service['title'] ?></h3>
+                <p>
+                  <?= $service['description'] ?>
+                </p>
+              </div>
             </div>
-          </div>
           <?php endforeach; ?>
         </div>
       </div>
@@ -300,25 +300,25 @@ $skills = mysqli_query($db_connect,$skill_query);
           </div>
         </div>
         <div class="row">
-            <?php foreach($portfolios as $port) : ?>
-          <div class="col-lg-4 col-md-6 pitem">
-            <div class="speaker-box">
-              <div class="speaker-thumb">
-              <img style="width: 400px;height:450px; border: 2px solid #fff; border-radius: 5px;margin:5px" src="./images/portfolio/<?= $port['image'] ?>" alt="">
-              </div>
-              <div class="speaker-overlay">
-                <span><?= $port['description'] ?></span>
-                <h4><a href="portfolio-single.html"><?= $port['title'] ?></a></h4>
-                <a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+          <?php foreach ($portfolios as $port) : ?>
+            <div class="col-lg-4 col-md-6 pitem">
+              <div class="speaker-box">
+                <div class="speaker-thumb">
+                  <img style="width: 400px;height:450px; border: 2px solid #fff; border-radius: 5px;margin:5px" src="./images/portfolio/<?= $port['image'] ?>" alt="">
+                </div>
+                <div class="speaker-overlay">
+                  <span><?= $port['description'] ?></span>
+                  <h4><a href="portfolio-single.html"><?= $port['title'] ?></a></h4>
+                  <a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+                </div>
               </div>
             </div>
-          </div>
-          <?php endforeach;?>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-      <!-- portfolio area end -->
+    <!-- portfolio area end -->
 
     <!-- services-area-end -->
 
@@ -328,19 +328,19 @@ $skills = mysqli_query($db_connect,$skill_query);
       <div class="container">
         <div class="fact-wrap">
           <div class="row justify-content-between">
-            
-          <?php foreach($facts as $fact) : ?>
-            <div class="col-xl-2 col-lg-3 col-sm-6">
-              <div class="fact-box text-center mb-50">
-                <div class="fact-icon">
-                  <i class="<?= $fact['icon'] ?>"></i>
-                   </div>
+
+            <?php foreach ($facts as $fact) : ?>
+              <div class="col-xl-2 col-lg-3 col-sm-6">
+                <div class="fact-box text-center mb-50">
+                  <div class="fact-icon">
+                    <i class="<?= $fact['icon'] ?>"></i>
+                  </div>
                   <div class="fact-content">
-                  <h2><span><?= $fact['number'] ?></span></h2>
-                  <span><?= $fact['description'] ?></span>
+                    <h2><span><?= $fact['number'] ?></span></h2>
+                    <span><?= $fact['description'] ?></span>
+                  </div>
                 </div>
               </div>
-            </div>
             <?php endforeach; ?>
 
           </div>
@@ -365,24 +365,24 @@ $skills = mysqli_query($db_connect,$skill_query);
           <div class="col-xl-9 col-lg-10">
             <div class="testimonial-active">
 
-              <?php foreach($testimonials as $tests) : ?>
-              <div class="single-testimonial text-center">
-                <div class="testi-avatar">
-                <img style="width: 60px; height:60px;border: 2px solid #fff; border-radius: 50%;" src="./images/testimonial/<?= $tests['image']; ?>" alt="user_img" />
-                </div>
-                <div class="testi-content">
-                  <h4>
-                    <span>“</span> 
-                    <?= $tests['description'] ?>
-                    <span>”</span>
-                  </h4>
-                  <div class="testi-avatar-info">
-                    <h5><?= $tests['name'] ?></h5>
-                    <span><?= $tests['title'] ?></span>
+              <?php foreach ($testimonials as $tests) : ?>
+                <div class="single-testimonial text-center">
+                  <div class="testi-avatar">
+                    <img style="width: 60px; height:60px;border: 2px solid #fff; border-radius: 50%;" src="./images/testimonial/<?= $tests['image']; ?>" alt="user_img" />
+                  </div>
+                  <div class="testi-content">
+                    <h4>
+                      <span>“</span>
+                      <?= $tests['description'] ?>
+                      <span>”</span>
+                    </h4>
+                    <div class="testi-avatar-info">
+                      <h5><?= $tests['name'] ?></h5>
+                      <span><?= $tests['title'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <?php endforeach; ?>
+              <?php endforeach; ?>
 
             </div>
           </div>
@@ -390,18 +390,18 @@ $skills = mysqli_query($db_connect,$skill_query);
       </div>
     </section>
     <!-- testimonial-area-end -->
-      
-    
+
+
     <!-- brand-area -->
     <div class="barnd-area pt-100 pb-100">
       <div class="container">
         <div class="row brand-active">
-          <?php foreach($brands as $brand) : ?>
-          <div class="col-xl-2">
-            <div class="single-brand">
-              <img style="width: 130px;height:130px; border: 1px solid #fff;border-radius:20px;" src="./images/brand/<?= $brand['image'] ?>" alt="img" />
+          <?php foreach ($brands as $brand) : ?>
+            <div class="col-xl-2">
+              <div class="single-brand">
+                <img style="width: 130px;height:130px; border: 1px solid #fff;border-radius:20px;" src="./images/brand/<?= $brand['image'] ?>" alt="img" />
+              </div>
             </div>
-          </div>
           <?php endforeach; ?>
         </div>
       </div>
@@ -440,14 +440,33 @@ $skills = mysqli_query($db_connect,$skill_query);
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="contact-form">
-              <form action="#">
-                <input type="text" placeholder="your name *" />
-                <input type="email" placeholder="your email *" />
-                <textarea name="message" id="message" placeholder="your message *"></textarea>
-                <button class="btn">SEND</button>
-              </form>
-            </div>
+
+
+            <form action="./dashboard/mail_post.php" method="POST">
+              <div class="mb-3">
+                <!-- name data -->
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input name="name" type="name" class="form-control" placeholder="enter your name...">
+                <!-- email data -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" placeholder="enter your email">
+              </div>
+              <!-- message data -->
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Feedback</label>
+                <textarea class="form-control" placeholder="enter your feedback..." name="message"></textarea>
+              </div>
+              <!-- sent success start -->
+              <?php if (isset($_SESSION['mail_success'])) : ?>
+                <div id="emailHelp" class="form-text m-b-md text-primary"><?= $_SESSION['mail_success']; ?></div>
+              <?php endif;
+              unset($_SESSION['mail_success']); ?>
+              <!-- sent success end -->
+              <button type="submit" name="send_btn" class="btn">SEND</button>
+            </form>
+
           </div>
         </div>
       </div>

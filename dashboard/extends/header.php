@@ -145,16 +145,6 @@ $link = end($explode);
 
 
 
-
-
-
-
-
-
-
-
-
-
           <!-- testimonial link area -->
 
           <li class="<?= ($link == 'testimonial.php') ? 'active-page' : ''; ?>">
@@ -171,17 +161,6 @@ $link = end($explode);
           </li>
 
           <!-- testimonial link area end -->
-
-
-
-
-
-
-
-
-
-
-
 
           <!-- facts link -->
           <li class="<?= ($link == 'fact.php') ? 'active-page' : ''; ?>">
@@ -212,11 +191,13 @@ $link = end($explode);
           </li>
           <!-- brand end -->
 
-
           <!-- mail box -->
           <li>
-            <a href="mailbox.html"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
+          <li class="<?= ($link == 'mails_show.php') ? 'active-page' : ''; ?>">
+            <a href="mails_show.php"><i class="material-icons-two-tone">inbox</i>Mails<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
           </li>
+          </li>
+
         </ul>
       </div>
     </div>
