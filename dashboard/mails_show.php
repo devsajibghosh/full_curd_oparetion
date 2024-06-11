@@ -6,7 +6,7 @@ include('../config/db.php');
 
 // show all mails
 
-$select_query = "SELECT * FROM mails ORDER BY message DESC";
+$select_query = "SELECT * FROM mails ORDER BY id DESC";
 $mails = mysqli_query($db_connect,$select_query);
 
 $serial = 1;
@@ -61,13 +61,6 @@ $serial = 1;
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 
 
 <?php 

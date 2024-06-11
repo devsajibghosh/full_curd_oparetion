@@ -19,8 +19,8 @@ $email_to = "devsajibghosh@gmail.com" ;
 $name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];
-$subject = "Curd gretting message";
-$body = "Thanks $name for joining our Curd Community".'<br>'."We are Happy to your joining $name";
+$subject = "DURGA PUJA MEASSAGE";
+$body = "<b>Thanks $name for joining our Ghosh Community</b>".'<br>'."We are Happy to your joining Durga Puja🔥.";
 
 
 if($name && $email && $message){
@@ -41,7 +41,7 @@ $mail->setFrom('admin@dev.com', 'GHOSH COMMUNITY');
 $mail->addAddress($email, $name);     //Add a recipient
 // $mail->addAddress('ellen@example.com');               //Name is optional
 // replay email 
-$mail->addReplyTo($email_to);                      
+$mail->addReplyTo($email_to); 
 // $mail->addCC('cc@example.com');
 // $mail->addBCC('bcc@example.com');
 
@@ -53,7 +53,8 @@ $mail->addReplyTo($email_to);
 $mail->isHTML(true);                                  //Set email format to HTML
 $mail->Subject = $subject;
 $mail->Body    = $body;
-// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+$mail->addEmbeddedImage('../images/durgama.jpg', 'ma.jpg');
+// $mail->AltBody = 'Thanks For Your Rebember Our';
 
 
 if($mail->send()){
